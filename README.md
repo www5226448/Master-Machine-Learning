@@ -22,7 +22,7 @@ The code is undergoing the first review.
   * 支持向量机理解补充1
   * 支持向量机理解补充2
   * 支持向量机初步
-  * 精通支持向量机【待完成】
+  * 精通支持向量机
   * 支持向量回归【待完成】
   
 - [4.精通特征工程](https://github.com/www5226448/Master-Machine-Learning/tree/master/4.Feature%20Engineering)  
