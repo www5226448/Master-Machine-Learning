@@ -47,8 +47,8 @@ The code is undergoing the first review.
   * 关联规则挖掘
   
  - 8.高级工具库的使用
- * Xgboost调参及使用【未完成】
- * LightGBM调参及使用【未完成】
+  * Xgboost调参及使用【未完成】
+  * LightGBM调参及使用【未完成】
   
 - [9.推荐系统](https://github.com/www5226448/Master-Machine-Learning/tree/master/9.Recommendation%20system)
   * 推荐系统demo
