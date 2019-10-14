@@ -40,8 +40,10 @@ The code is undergoing the first review.
   
 - 6.Bayesian Machine Learning
   * Naive Bayes
+  * Bayesian Linear Regression
+  * Gaussian Mixture Model
   * Hidden Markov Model
-  * Gaussian mixture model
+  * Conditional Random Field
   * Latent Dirichlet Allocation
   
   
