@@ -7,7 +7,7 @@ The code is undergoing the first review.
   * kNN arithmetic
   * kNN algorithm using kdd tree
   
-- [1.Linear Model](https://github.com/www5226448/Master-Machine-Learning/tree/master/1.Linear%20regression%20and%20Logistic%20regression)
+- [1.Linear Model](https://github.com/www5226448/Master-Machine-Learning/tree/master/1.Linear%20Model)
   * Linear Regression
   * Logistic Regression
   * Multi-layer Perceptron Regressor
@@ -37,7 +37,7 @@ The code is undergoing the first review.
   * RandomForest
   * Model stacking
   
-- [6.Unsupervised Learning](https://github.com/www5226448/Master-Machine-Learning/tree/master/7.Unsupervised%20learning)
+- [6.Unsupervised Learning](https://github.com/www5226448/Master-Machine-Learning/tree/master/6.Unsupervised%20learning)
   * K-menans
   * PCA
   * Association Rule
