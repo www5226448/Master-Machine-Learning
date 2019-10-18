@@ -37,8 +37,13 @@ The code is undergoing the first review.
   * RandomForest
   * Model stacking
   
+- [6.Unsupervised Learning](https://github.com/www5226448/Master-Machine-Learning/tree/master/7.Unsupervised%20learning)
+  * K-menans
+  * PCA
+  * Association Rule
   
-- 6.Bayesian Machine Learning
+  
+- 7.Bayesian Machine Learning
   * Naive Bayes
   * Bayesian Linear Regression
   * Gaussian Mixture Model
@@ -46,15 +51,5 @@ The code is undergoing the first review.
   * Conditional Random Field
   * Latent Dirichlet Allocation
   
+
   
-- [7.Unsupervised Learning](https://github.com/www5226448/Master-Machine-Learning/tree/master/7.Unsupervised%20learning)
-  * K-menans
-  * PCA
-  * Association Rule
-  
-  
-- 8.Advanced Tool Library
-  - sklearn
-  - scikit-surprise
-  - Xgboost
-  - LightGBM
