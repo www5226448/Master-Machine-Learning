@@ -40,7 +40,6 @@ The code is undergoing the first review.
 - [6.Unsupervised Learning](https://github.com/www5226448/Master-Machine-Learning/tree/master/6.Unsupervised%20learning)
   * K-menans
   * PCA
-  * Association Rule
   
   
 - 7.Bayesian Machine Learning
