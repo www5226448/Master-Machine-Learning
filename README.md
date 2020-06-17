@@ -1,7 +1,7 @@
 # Master Statistical Machine Learning
 
 
-#### Using Numpy to implement common statistical machine learning algorithms.   
+#### implement common statistical machine learning algorithms with raw Numpy.   
 The code is undergoing the first review.  
 - [0.kNN arithmetic](https://github.com/www5226448/Master-Machine-Learning/tree/master/0.An%20appetizer--kNN%20arithmetic) 
   * kNN arithmetic
