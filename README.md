@@ -35,6 +35,7 @@ The code is undergoing the first review.
   * Adaboost
   * GBDT
   * RandomForest
+  * XGBoost
   * Model stacking
   
 - [6.Unsupervised Learning](https://github.com/www5226448/Master-Machine-Learning/tree/master/6.Unsupervised%20learning)
