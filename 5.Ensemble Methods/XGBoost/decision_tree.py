@@ -27,6 +27,7 @@ class DecisionTree(ABC):
                  reg_lambda=0,
                  max_depth=float("inf"),
                  min_child_weight=1,
+                 n_jobs=1,
                  loss=None):
         self.root = None
         self.min_samples_split = min_samples_split
@@ -35,12 +36,14 @@ class DecisionTree(ABC):
         self.loss = loss
         self.reg_lambda = reg_lambda
         self.min_child_weight = min_child_weight
+        self.n_jobs = n_jobs
 
     def fit(self, X, y):
         """ Build decision tree """
         self.root = self.__build_tree(X, y, 0)
 
     def __build_tree(self, X, y, current_depth=0):
+
         """ Recursive method which builds out the decision tree and splits X and respective y
         on the feature of X which (based on impurity) best separates the data"""
 
@@ -50,12 +53,15 @@ class DecisionTree(ABC):
                                   for feature in X.T])
         if n_samples >= self.min_samples_split and current_depth <= self.max_depth:
             # Calculate the impurity for each feature
-
             results = []
             for index in range(n_features):
-                result = self.get_best_split(X, y, index, quantile_data)
+                this_feature = X[:, index][:, np.newaxis]
+                feature_quantile = quantile_data[index]
+                result = self.get_best_split(this_feature, index, feature_quantile, y)
                 results.append(result)
+
             this_spilt = heapq.nlargest(1, results, key=lambda x: x[1])[0]
+
             spilt_index, largest_impurity, spilt_threshold, left, right = this_spilt
 
             if largest_impurity > self.min_impurity:
@@ -71,14 +77,15 @@ class DecisionTree(ABC):
 
         return DecisionNode(value=leaf_value)
 
-    def get_best_split(self, X, y, feature_index, spilt_matrix):
+    # def get_best_split(self, X, y, feature_index, spilt_matrix):
+    def get_best_split(self, feature_data, feature_index, quantile_values, y):
         best_impurity = -np.inf
         groups = (None, None)
         spilt_threshold = None
 
-        quantile_values = spilt_matrix[feature_index]
+        # quantile_values = spilt_matrix[feature_index]
         for threshold in quantile_values:
-            left_index, right_index = split_by_threshold(X, feature_index, threshold)
+            left_index, right_index = split_by_threshold(feature_data, 0, threshold)
 
             if len(left_index) > 0 and len(right_index) > 0:
                 # Select the y-values of the two sets
@@ -117,6 +124,7 @@ class DecisionTree(ABC):
     def predict(self, X):
         """ Classify samples one by one and return the set of labels """
         y_pred = np.array([self.predict_value(sample) for sample in X])
+
         return y_pred
 
     @abstractmethod
@@ -141,7 +149,7 @@ class XGBoostRegressionTree(DecisionTree):
         nominator = (y * self.loss.gradient(y, y_pred)).sum() ** 2
         child_weight = self.loss.hess(y, y_pred).sum()
         denominator = child_weight ** 2 + self.reg_lambda
-        gain_value = 0.5 * (nominator / denominator)
+        gain_value = (nominator / denominator)  #*0.5
 
         return gain_value, child_weight
 
@@ -163,5 +171,4 @@ class XGBoostRegressionTree(DecisionTree):
         gradient = np.sum(self.loss.gradient(y, y_pred), axis=0)
         hessian = np.sum(self.loss.hess(y, y_pred), axis=0)
         update_approximation = -gradient / (hessian + self.reg_lambda)
-
         return update_approximation
